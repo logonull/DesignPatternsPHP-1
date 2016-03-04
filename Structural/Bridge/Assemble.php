@@ -6,6 +6,6 @@ class Assemble implements Workshop
 {
     public function work()
     {
-        echo 'Assembled';
+        echo "Assembled";
     }
 }

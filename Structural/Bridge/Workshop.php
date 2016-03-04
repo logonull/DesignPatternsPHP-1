@@ -3,7 +3,7 @@
 namespace DesignPatterns\Structural\Bridge;
 
 /**
- * Implementer.
+ * 实现
  */
 interface Workshop
 {

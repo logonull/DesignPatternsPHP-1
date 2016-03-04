@@ -3,7 +3,7 @@
 namespace DesignPatterns\Structural\Bridge;
 
 /**
- * Refined Abstraction.
+ * 处理抽象类
  */
 class Motorcycle extends Vehicle
 {
