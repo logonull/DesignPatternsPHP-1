@@ -3,20 +3,19 @@
 namespace DesignPatterns\Structural\Adapter;
 
 /**
- * PaperBookInterface is a contract for a book.
+ * PaperBookInterface 是纸质书的约定
  */
+
 interface PaperBookInterface
 {
     /**
-     * method to turn pages.
-     *
+     * 翻页
      * @return mixed
      */
     public function turnPage();
 
     /**
-     * method to open the book.
-     *
+     * 打开
      * @return mixed
      */
     public function open();

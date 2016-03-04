@@ -2,39 +2,35 @@
 
 namespace DesignPatterns\Structural\Adapter;
 
+
 /**
- * EBookAdapter is an adapter to fit an e-book like a paper book.
- *
- * This is the adapter here. Notice it implements PaperBookInterface,
- * therefore you don't have to change the code of the client which using paper book.
+ * 这个类使一个接口完全地翻译到另一个接口
  */
 class EBookAdapter implements PaperBookInterface
 {
     /**
-     * @var EBookInterface
+     * @var EBookInterFace
      */
     protected $eBook;
 
     /**
-     * Notice the constructor, it "wraps" an electronic book.
-     *
-     * @param EBookInterface $ebook
+     * 注意这个构造函数，它"包含"了一个电子书
+     * @param EBookInterFace $eBook
      */
-    public function __construct(EBookInterface $ebook)
+    public function __construct(EBookInterFace $eBook)
     {
-        $this->eBook = $ebook;
+        $this->eBook=$eBook;
     }
 
     /**
-     * This class makes the proper translation from one interface to another.
+     * 打开
      */
-    public function open()
-    {
+    public function open(){
         $this->eBook->pressStart();
     }
 
     /**
-     * turns pages.
+     * 翻页
      */
     public function turnPage()
     {

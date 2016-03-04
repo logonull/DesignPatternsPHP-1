@@ -3,21 +3,19 @@
 namespace DesignPatterns\Structural\Adapter;
 
 /**
- * Book is a concrete and standard paper book.
+ * Book是一个具体的标准的纸质书
+ *
  */
 class Book implements PaperBookInterface
 {
     /**
-     * {@inheritdoc}
+     * 翻页
      */
-    public function open()
-    {
-    }
+    public function turnPage(){}
 
     /**
-     * {@inheritdoc}
+     * 打开
      */
-    public function turnPage()
-    {
-    }
+    public function open(){}
+
 }

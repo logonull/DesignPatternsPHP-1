@@ -3,21 +3,18 @@
 namespace DesignPatterns\Structural\Adapter;
 
 /**
- * Kindle is a concrete electronic book.
+ * Kindle是一个电子书的实现
+ *
  */
-class Kindle implements EBookInterface
+class Kindle implements EBookInterFace
 {
     /**
-     * {@inheritdoc}
+     * 下一页
      */
-    public function pressNext()
-    {
-    }
+    public function pressNext(){}
 
     /**
-     * {@inheritdoc}
+     * 打开书
      */
-    public function pressStart()
-    {
-    }
+    public function pressStart(){}
 }

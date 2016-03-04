@@ -3,21 +3,17 @@
 namespace DesignPatterns\Structural\Adapter;
 
 /**
- * EBookInterface is a contract for an electronic book.
+ * EBookInterface 是电子书的约定
  */
-interface EBookInterface
+interface EBookInterFace
 {
     /**
-     * go to next page.
-     *
-     * @return mixed
+     * 下一页
      */
     public function pressNext();
 
     /**
-     * start the book.
-     *
-     * @return mixed
+     * 打开书
      */
     public function pressStart();
 }
