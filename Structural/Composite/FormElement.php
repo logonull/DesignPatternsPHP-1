@@ -3,16 +3,14 @@
 namespace DesignPatterns\Structural\Composite;
 
 /**
- * Class FormElement.
+ * 表单元素类
  */
 abstract class FormElement
 {
     /**
-     * renders the elements' code.
+     * 渲染元素代码
      *
      * @param int $indent
-     *
-     * @return mixed
      */
-    abstract public function render($indent = 0);
+    abstract public function render($indent=0);
 }

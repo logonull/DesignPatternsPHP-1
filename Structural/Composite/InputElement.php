@@ -3,12 +3,12 @@
 namespace DesignPatterns\Structural\Composite;
 
 /**
- * Class InputElement.
+ * 输入元素类
  */
 class InputElement extends FormElement
 {
     /**
-     * renders the input element HTML.
+     * 渲染输入元素html
      *
      * @param int $indent
      *
@@ -16,6 +16,6 @@ class InputElement extends FormElement
      */
     public function render($indent = 0)
     {
-        return str_repeat('  ', $indent).'<input type="text" />';
+        return str_repeat(' ', $indent).'<input type="text" />';
     }
 }

@@ -3,8 +3,7 @@
 namespace DesignPatterns\Structural\Composite;
 
 /**
- * The composite node MUST extend the component contract. This is mandatory for building
- * a tree of components.
+ * 这个组合节点必须继承组件的约定。要建成一个组件树这是必须的。
  */
 class Form extends FormElement
 {
@@ -14,10 +13,8 @@ class Form extends FormElement
     protected $elements;
 
     /**
-     * runs through all elements and calls render() on them, then returns the complete representation
-     * of the form.
-     *
-     * from the outside, one will not see this and the form will act like a single object instance
+     * 通过运行所有的元素，调用render方法，返回整个表单的显示.
+     * 从外面看来，没人知道这些，这个表单像一个对象一样工作.
      *
      * @param int $indent
      *
@@ -35,7 +32,8 @@ class Form extends FormElement
     }
 
     /**
-     * @param FormElement $element
+     * 增加表单元素
+     * @param  FormElement $element 表单元素
      */
     public function addElement(FormElement $element)
     {

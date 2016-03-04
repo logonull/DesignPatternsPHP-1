@@ -3,19 +3,17 @@
 namespace DesignPatterns\Structural\Composite;
 
 /**
- * Class TextElement.
+ * 文本元素类
  */
 class TextElement extends FormElement
 {
     /**
-     * renders the text element.
-     *
+     * 渲染文本元素
      * @param int $indent
-     *
-     * @return mixed|string
+     * @return string
      */
-    public function render($indent = 0)
+    public function render($indent=0)
     {
-        return str_repeat('  ', $indent).'this is a text element';
+        return str_repeat(' ',$indent).'this is a text element';
     }
 }

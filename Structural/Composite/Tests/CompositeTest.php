@@ -5,7 +5,7 @@ namespace DesignPatterns\Structural\Composite\Tests;
 use DesignPatterns\Structural\Composite;
 
 /**
- * FormTest tests the composite pattern on Form.
+ * FormTest 在表单中测试这个组合。
  */
 class CompositeTest extends \PHPUnit_Framework_TestCase
 {
@@ -23,8 +23,7 @@ class CompositeTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * The all point of this pattern, a Composite must inherit from the node
-     * if you want to builld trees.
+     * 如果你想要建立一棵树，在这个模式中最重要的就是,一个组合必须从节点继承。
      */
     public function testFormImplementsFormEelement()
     {
