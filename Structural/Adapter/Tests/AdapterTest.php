@@ -13,6 +13,9 @@ use DesignPatterns\Structural\Adapter\EBookAdapter;
  */
 class AdapterTest extends \PHPUnit_Framework_TestCase
 {
+    /**
+     * @return array
+     */
     public function getBook()
     {
         return array(
@@ -22,6 +25,11 @@ class AdapterTest extends \PHPUnit_Framework_TestCase
         );
     }
 
+    /**
+     * 这个客户端仅仅知道纸质书,但是非常惊奇的是:第二本书是电子书，但是可以用相同的办法工作
+     * @param PaperBookInterface $book
+     * @dataProvider getBook
+     */
     public function testIAmAnOldClient(PaperBookInterface $book)
     {
         $this->assertTrue(method_exists($book, 'open'));
