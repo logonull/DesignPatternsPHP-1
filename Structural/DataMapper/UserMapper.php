@@ -3,77 +3,70 @@
 namespace DesignPatterns\Structural\DataMapper;
 
 /**
- * class UserMapper.
+ * UserMapper类
  */
+
 class UserMapper
 {
+
     /**
      * @var DBAL
      */
     protected $adapter;
 
     /**
+     * UserMapper constructor.
      * @param DBAL $dbLayer
      */
     public function __construct(DBAL $dbLayer)
     {
-        $this->adapter = $dbLayer;
+        $this->adapter=$dbLayer;
     }
 
     /**
-     * saves a user object from memory to Database.
-     *
+     * 保存一个用户的对象从内存到数据库
      * @param User $user
-     *
      * @return bool
      */
     public function save(User $user)
     {
-        /* $data keys should correspond to valid Table columns on the Database */
+        // $data的keys应该是对应有效的数据库字段。
         $data = array(
             'userid' => $user->getUserId(),
             'username' => $user->getUsername(),
-            'email' => $user->getEmail(),
+            'email' => $user->getEmail()
         );
-
-        /* if no ID specified create new user else update the one in the Database */
+        //如果没有id将产生一个新的用户 否则更新在数据库中这条数据
         if (null === ($id = $user->getUserId())) {
             unset($data['userid']);
             $this->adapter->insert($data);
-
             return true;
         } else {
-            $this->adapter->update($data, array('userid = ?' => $id));
-
+            $this->adapter->update($data, array('userid=>?' => $id));
             return true;
         }
     }
 
     /**
-     * finds a user from Database based on ID and returns a User object located
-     * in memory.
-     *
+     * 通过ID在数据库中找出一个用户 并且 返回一个用户的对象放在内存中
      * @param int $id
      *
      * @throws \InvalidArgumentException
      *
      * @return User
-     */
+     **/
     public function findById($id)
     {
-        $result = $this->adapter->find($id);
-
-        if (0 == count($result)) {
+        $result=$this->adapter->find($id);
+        if (0==count($result)) {
             throw new \InvalidArgumentException("User #$id not found");
         }
-        $row = $result->current();
-
+        $row=$result->current();
         return $this->mapObject($row);
     }
 
     /**
-     * fetches an array from Database and returns an array of User objects
-     * located in memory.
+     * 获取一个数组从数据库，返回一个用户对象的数组在内存中.
      *
      * @return array
      */
@@ -90,8 +83,7 @@ class UserMapper
     }
 
     /**
-     * Maps a table row to an object.
-     *
+     * 映射一条表记录给对象
      * @param array $row
      *
      * @return User
