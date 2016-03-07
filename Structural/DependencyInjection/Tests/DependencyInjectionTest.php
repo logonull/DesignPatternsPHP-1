@@ -12,14 +12,14 @@ class DependencyInjectionTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->source = include 'config.php';
-        $this->config = new ArrayConfig($this->source);
+        $this->source=include 'config.php';
+        $this->config=new ArrayConfig($this->source);
     }
 
     public function testDependencyInjection()
     {
-        $connection = new Connection($this->config);
-        $connection->connect();
-        $this->assertEquals($this->source['host'], $connection->getHost());
+        $connect=new Connection($this->config);
+        $connect->connect();
+        $this->assertEquals($this->source['host'],$connect->getHost());
     }
 }

@@ -2,8 +2,9 @@
 
 namespace DesignPatterns\Structural\DependencyInjection;
 
+
 /**
- * Class Connection.
+ * connect 类
  */
 class Connection
 {
@@ -13,36 +14,37 @@ class Connection
     protected $configuration;
 
     /**
-     * @var Currently connected host
+     * @var connected host
      */
     protected $host;
 
     /**
      * @param Parameters $config
      */
+
     public function __construct(Parameters $config)
     {
-        $this->configuration = $config;
+        $this->configuration=$config;
     }
 
     /**
-     * connection using the injected config.
+     * 使用注入配置连接
      */
     public function connect()
     {
         $host = $this->configuration->get('host');
-        // connection to host, authentication etc...
+        //连接到主机,权限认证.
 
-        //if connected
+        //如果已经连接了
         $this->host = $host;
     }
 
-    /*
-     * Get currently connected host
+
+    /**
+     * 获取当前已经连接的主机
      *
      * @return string
      */
-
     public function getHost()
     {
         return $this->host;

@@ -2,18 +2,19 @@
 
 namespace DesignPatterns\Structural\DependencyInjection;
 
+
 /**
- * class AbstractConfig.
+ * AbstractConfig 类
  */
 abstract class AbstractConfig
 {
     /**
-     * @var Storage of data
+     * @var 数据的存储
      */
     protected $storage;
 
     public function __construct($storage)
     {
-        $this->storage = $storage;
+        $this->storage=$storage;
     }
 }
