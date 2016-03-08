@@ -2,13 +2,15 @@
 
 namespace DesignPatterns\Structural\DependencyInjection;
 
+
+
 /**
- * Parameters interface.
+ * Parameters接口
  */
 interface Parameters
 {
     /**
-     * Get parameter.
+     * 获取参数
      *
      * @param string|int $key
      *
@@ -17,10 +19,9 @@ interface Parameters
     public function get($key);
 
     /**
-     * Set parameter.
-     *
+     * 设置参数
      * @param string|int $key
      * @param mixed      $value
      */
-    public function set($key, $value);
+    public function set($key,$value);
 }

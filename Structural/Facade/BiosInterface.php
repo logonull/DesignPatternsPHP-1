@@ -3,29 +3,29 @@
 namespace DesignPatterns\Structural\Facade;
 
 /**
- * Class BiosInterface.
+ *  BiosInterface类
  */
 interface BiosInterface
 {
     /**
-     * execute the BIOS.
+     * 启动 BIOS.
      */
     public function execute();
 
     /**
-     * wait for halt.
+     * 等待暂停 halt.
      */
     public function waitForKeyPress();
 
     /**
-     * launches the OS.
+     * 启动 OS.
      *
      * @param OsInterface $os
      */
     public function launch(OsInterface $os);
 
     /**
-     * power down BIOS.
+     * 关掉 BIOS.
      */
     public function powerDown();
 }

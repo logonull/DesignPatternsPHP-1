@@ -7,40 +7,39 @@ use DesignPatterns\Structural\Facade\OsInterface;
 
 /**
  * FacadeTest shows example of facades.
+ * FacadeTest 显示出facades的例子
  */
 class FacadeTest extends \PHPUnit_Framework_TestCase
 {
     public function getComputer()
     {
         $bios = $this->getMockBuilder('DesignPatterns\Structural\Facade\BiosInterface')
-                ->setMethods(array('launch', 'execute', 'waitForKeyPress'))
-                ->disableAutoload()
-                ->getMock();
+            ->setMethods(array('launch', 'execute', 'waitForKeyPress'))
+            ->disableAutoload()
+            ->getMock();
         $operatingSys = $this->getMockBuilder('DesignPatterns\Structural\Facade\OsInterface')
-                ->setMethods(array('getName'))
-                ->disableAutoload()
-                ->getMock();
+            ->setMethods(array('getName'))
+            ->disableAutoload()
+            ->getMock();
         $bios->expects($this->once())
-                ->method('launch')
-                ->with($operatingSys);
+            ->method('launch')
+            ->with($operatingSys);
         $operatingSys
-                ->expects($this->once())
-                ->method('getName')
-                ->will($this->returnValue('Linux'));
+            ->expects($this->once())
+            ->method('getName')
+            ->will($this->returnValue('Linux'));
 
-        $facade = new Computer($bios, $operatingSys);
+        $facade = new Computer($bios,$operatingSys);
 
-        return array(array($facade, $operatingSys));
+        return [[$facade,$operatingSys]];
     }
 
     /**
      * @dataProvider getComputer
      */
-    public function testComputerOn(Computer $facade, OsInterface $os)
+    public function testComputerON(Computer $facade,OsInterface $os)
     {
-        // interface is simpler :
         $facade->turnOn();
-        // but I can access to lower component
-        $this->assertEquals('Linux', $os->getName());
+        $this->assertEquals('Linux',$os->getName());
     }
 }
