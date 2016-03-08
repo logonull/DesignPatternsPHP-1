@@ -18,9 +18,7 @@ class Facade
     protected $bios;
 
     /**
-     * This is the perfect time to use a dependency injection container
-     * to create an instance of this class.
-     *
+     * 这是一个非常好的地方使用依赖注入容器去产生这个类的实例。
      * @param BiosInterface $bios
      * @param OsInterface   $os
      */
@@ -31,7 +29,7 @@ class Facade
     }
 
     /**
-     * turn on the system.
+     *  打开系统.
      */
     public function turnOn()
     {
@@ -41,7 +39,7 @@ class Facade
     }
 
     /**
-     * turn off the system.
+     * 关闭系统.
      */
     public function turnOff()
     {
