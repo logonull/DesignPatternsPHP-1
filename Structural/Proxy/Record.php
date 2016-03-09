@@ -3,7 +3,7 @@
 namespace DesignPatterns\Structural\Proxy;
 
 /**
- * class Record.
+ * record类
  */
 class Record
 {
@@ -21,31 +21,26 @@ class Record
     }
 
     /**
-     * magic setter.
-     *
-     * @param string $name
-     * @param mixed  $value
-     *
-     * @return void
+     * 魔术方法 setter
+     * @param $name
+     * @param $value
      */
-    public function __set($name, $value)
+    public function __set($name,$value)
     {
         $this->data[(string) $name] = $value;
     }
 
     /**
-     * magic getter.
-     *
+     * 魔术方法 getter
      * @param string $name
-     *
-     * @return mixed|null
+     * @param mixed|null
      */
     public function __get($name)
     {
-        if (array_key_exists($name, $this->data)) {
+        if (array_key_exists($name,$this->data)) {
             return $this->data[(string) $name];
         } else {
-            return;
+            return ;
         }
     }
 }
