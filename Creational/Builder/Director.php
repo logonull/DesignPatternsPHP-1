@@ -3,20 +3,11 @@
 namespace DesignPatterns\Creational\Builder;
 
 /**
- * Director is part of the builder pattern. It knows the interface of the builder
- * and builds a complex object with the help of the builder.
- *
- * You can also inject many builders instead of one to build more complex objects
+ * Director是建造器模式的一部分。它知道建造的接口而且可以建立一个复杂对象根据建造器的帮助。
+ * 你也可以注入更多的建造者简历更复杂的对象。
  */
 class Director
 {
-    /**
-     * The director don't know about concrete part.
-     *
-     * @param BuilderInterface $builder
-     *
-     * @return Parts\Vehicle
-     */
     public function build(BuilderInterface $builder)
     {
         $builder->createVehicle();
