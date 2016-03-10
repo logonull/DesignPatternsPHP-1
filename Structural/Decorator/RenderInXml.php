@@ -3,12 +3,13 @@
 namespace DesignPatterns\Structural\Decorator;
 
 /**
- * Class RenderInXml.
+ *  RenderInXml 类
  */
 class RenderInXml extends Decorator
 {
     /**
-     * render data as XML.
+     *
+     * 渲染XML数据
      *
      * @return mixed|string
      */
@@ -16,8 +17,7 @@ class RenderInXml extends Decorator
     {
         $output = $this->wrapped->renderData();
 
-        // do some fancy conversion to xml from array ...
-
+        //做一些转化从数组到XML
         $doc = new \DOMDocument();
 
         foreach ($output as $key => $val) {

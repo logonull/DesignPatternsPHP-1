@@ -5,18 +5,18 @@ namespace DesignPatterns\Creational\Pool;
 class Processor
 {
     private $pool;
-    private $processing = 0;
-    private $maxProcesses = 3;
-    private $waitingQueue = array();
+    private $processing=0;
+    private $maxProcess=3;
+    private $waitingQueue=[];
 
     public function __construct(Pool $pool)
     {
-        $this->pool = $pool;
+        $this->pool=$pool;
     }
 
     public function process($image)
     {
-        if ($this->processing++ < $this->maxProcesses) {
+        if ($this->processing++ < $this->maxProcess) {
             $this->createWorker($image);
         } else {
             $this->pushToWaitingQueue($image);
@@ -26,26 +26,26 @@ class Processor
     private function createWorker($image)
     {
         $worker = $this->pool->get();
-        $worker->run($image, array($this, 'processDone'));
+        $worker->run($image,[$this,'processDone']);
     }
 
     public function processDone($worker)
     {
         $this->processing--;
         $this->pool->dispose($worker);
-
         if (count($this->waitingQueue) > 0) {
             $this->createWorker($this->popFromWaitingQueue());
         }
     }
 
-    private function pushToWaitingQueue($image)
+    private function pushTOWaitingQueue($image)
     {
-        $this->waitingQueue[] = $image;
+        $this->waitingQueue[]=$image;
     }
 
     private function popFromWaitingQueue()
     {
         return array_pop($this->waitingQueue);
     }
+
 }

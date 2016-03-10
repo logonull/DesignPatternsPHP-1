@@ -3,12 +3,12 @@
 namespace DesignPatterns\Structural\Decorator;
 
 /**
- * Class RenderInJson.
+ *  RenderInJson类
  */
 class RenderInJson extends Decorator
 {
     /**
-     * render data as JSON.
+     * 返回 JSON.
      *
      * @return mixed|string
      */

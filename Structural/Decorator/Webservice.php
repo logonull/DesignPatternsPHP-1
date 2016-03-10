@@ -3,7 +3,7 @@
 namespace DesignPatterns\Structural\Decorator;
 
 /**
- * Class Webservice.
+ * Webservice类
  */
 class Webservice implements RendererInterface
 {
@@ -17,11 +17,11 @@ class Webservice implements RendererInterface
      */
     public function __construct($data)
     {
-        $this->data = $data;
+        $this->data=$data;
     }
 
     /**
-     * @return string
+     * @return mixed
      */
     public function renderData()
     {

@@ -2,20 +2,12 @@
 
 namespace DesignPatterns\Creational\Prototype;
 
-/**
- * Class BarBookPrototype.
- */
-class BarBookPrototype extends BookPrototype
+class BarBooKPrototype extends BookPrototype
 {
-    /**
-     * @var string
-     */
     protected $category = 'Bar';
 
-    /**
-     * empty clone.
-     */
     public function __clone()
     {
+
     }
 }

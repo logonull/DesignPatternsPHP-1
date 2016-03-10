@@ -4,10 +4,7 @@ namespace DesignPatterns\Creational\Singleton\Tests;
 
 use DesignPatterns\Creational\Singleton\Singleton;
 
-/**
- * SingletonTest tests the singleton pattern.
- */
-class SingletonTest extends \PHPUnit_Framework_TestCase
+class SingletoTest extends \PHPUnit_Framework_TestCase
 {
     public function testUniqueness()
     {

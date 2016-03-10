@@ -2,50 +2,42 @@
 
 namespace DesignPatterns\Creational\Multiton;
 
-/**
- * class Multiton.
- */
-class Multiton
+class Multion
 {
     /**
-     * the first instance.
+     * 第一个实例
      */
     const INSTANCE_1 = '1';
 
     /**
-     * the second instance.
+     * 第二个实例
      */
     const INSTANCE_2 = '2';
 
     /**
-     * holds the named instances.
-     *
-     * @var array
+     * 保存已经被命名过的实例
      */
-    private static $instances = array();
+    private static $instance = [];
 
     /**
-     * should not be called from outside: private!
+     * 不能被外部实例:私有的！
      */
     private function __construct()
     {
     }
 
     /**
-     * gets the instance with the given name, e.g. Multiton::INSTANCE_1
-     * uses lazy initialization.
-     *
-     * @param string $instanceName
-     *
-     * @return Multiton
+     * 获取给定名称的实例
+     * 懒实例化（后期静态绑定）
+     * @param $instanceName
+     * @return mixed
      */
     public static function getInstance($instanceName)
     {
-        if (!array_key_exists($instanceName, self::$instances)) {
-            self::$instances[$instanceName] = new self();
+        if (!array_key_exists($instanceName,self::$instance)) {
+            self::$instance[$instanceName] = new self();
         }
-
-        return self::$instances[$instanceName];
+        return self::$instance[$instanceName];
     }
 
     /**

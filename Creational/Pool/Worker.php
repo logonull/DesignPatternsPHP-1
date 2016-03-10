@@ -6,14 +6,14 @@ class Worker
 {
     public function __construct()
     {
-        // let's say that constuctor does really expensive work...
-        // for example creates "thread"
+        //我们说构造器真正做事
+        //比如创建一个线程
     }
-
-    public function run($image, array $callback)
+    public function run($image,array $callback)
     {
-        // do something with $image...
-        // and when it's done, execute callback
-        call_user_func($callback, $this);
+        //做一些事情和$image
+        //当做完之后，回调
+        call_user_func($callback,$this);
     }
 }
+

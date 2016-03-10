@@ -2,39 +2,33 @@
 
 namespace DesignPatterns\Creational\Singleton;
 
-/**
- * class Singleton.
- */
 class Singleton
 {
     /**
-     * @var Singleton reference to singleton instance
+     * @var 单例的关联
      */
     private static $instance;
 
     /**
-     * gets the instance via lazy initialization (created on first usage).
-     *
+     * 获取实例通过懒初始化(第一次使用建立)
      * @return self
      */
     public static function getInstance()
     {
         if (null === static::$instance) {
-            static::$instance = new static();
+            static::$instance=new static();
         }
-
         return static::$instance;
     }
 
     /**
-     * is not allowed to call from outside: private!
+     * 不允许在外面调用 :私有的！
      */
     private function __construct()
     {
     }
-
     /**
-     * prevent the instance from being cloned.
+     * 防止实例被克隆
      *
      * @throws SingletonPatternViolationException
      *
@@ -46,14 +40,11 @@ class Singleton
     }
 
     /**
-     * prevent from being unserialized.
-     *
-     * @throws SingletonPatternViolationException
-     *
-     * @return void
+     * 防止被反序列化
      */
-    final public function __wakeup()
+    final public function __wakeUp()
     {
         throw new SingletonPatternViolationException('This is a Singleton. __wakeup usage is forbidden');
     }
+
 }
