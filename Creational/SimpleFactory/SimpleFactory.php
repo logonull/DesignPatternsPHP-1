@@ -3,13 +3,10 @@
 namespace DesignPatterns\Creational\SimpleFactory;
 
 /**
- * class SimpleFactory.
+ * 简单工厂类
  */
 class SimpleFactory
 {
-    /**
-     * @var array
-     */
     protected $typeList;
 
     /**
@@ -18,11 +15,12 @@ class SimpleFactory
      */
     public function __construct()
     {
-        $this->typeList = array(
-            'bicycle' => __NAMESPACE__.'\Bicycle',
-            'other' => __NAMESPACE__.'\Scooter',
-        );
+        $this->typeList = [
+            'bicycle' => __NAMESPACE__ . '\Bicycle',
+            'other' => __NAMESPACE__ . '\Scooter'
+        ];
     }
+
 
     /**
      * Creates a vehicle.
@@ -35,11 +33,11 @@ class SimpleFactory
      */
     public function createVehicle($type)
     {
-        if (!array_key_exists($type, $this->typeList)) {
+        if (!array_key_exists($type,$this->typeList)) {
             throw new \InvalidArgumentException("$type is not valid vehicle");
         }
         $className = $this->typeList[$type];
-
         return new $className();
     }
+
 }
