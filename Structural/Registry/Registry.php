@@ -3,39 +3,29 @@
 namespace DesignPatterns\Structural\Registry;
 
 /**
- * class Registry.
+ * Registry类
  */
 abstract class Registry
 {
-    const LOGGER = 'logger';
+    const LOGGER='logger';
+
+    protected static $storedValues=array();
 
     /**
-     * @var array
-     */
-    protected static $storedValues = array();
-
-    /**
-     * sets a value.
-     *
+     * 设置值
      * @param string $key
-     * @param mixed  $value
-     *
      * @static
-     *
-     * @return void
+     * @param string $value
      */
-    public static function set($key, $value)
+    public static function set($key,$value)
     {
-        self::$storedValues[$key] = $value;
+        self::$storedValues[$key]=$value;
     }
 
     /**
-     * gets a value from the registry.
-     *
-     * @param string $key
-     *
+     * 从注册树上获取一个值
+     * @param $key
      * @static
-     *
      * @return mixed
      */
     public static function get($key)
@@ -43,5 +33,7 @@ abstract class Registry
         return self::$storedValues[$key];
     }
 
-    // typically there would be methods to check if a key has already been registered and so on ...
+    //这些方法会检查 是否一个key已经被注册等等
+
+
 }
